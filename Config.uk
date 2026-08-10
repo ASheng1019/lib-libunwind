@@ -4,3 +4,28 @@ menuconfig LIBUNWIND
 	select LIBCXXABI
 	select LIBCOMPILER_RT
     default n
+
+if LIBUNWIND
+
+choice
+	prompt "Version"
+	default LIBUNWIND_RELEASE2118
+	help
+		Select the version of the upstream libunwind
+		sources that will be downloaded.
+		Please note that you should run `make properclean`
+		whenever you change the version.
+
+config LIBUNWIND_RELEASE1406
+	bool "Release 14.0.6"
+	help
+		An official release from the LLVM project.
+
+config LIBUNWIND_RELEASE2118
+	bool "Release 21.1.8"
+	help
+		An official release from the LLVM project.
+
+endchoice
+
+endif
